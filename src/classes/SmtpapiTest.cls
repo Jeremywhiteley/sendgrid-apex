@@ -14,6 +14,13 @@ private class SmtpapiTest {
     system.assertEquals('{\"to\":[\"addTo@mailinator.com\"]}', header.jsonString());
   }
 
+  @isTest static void testSendAt() {
+    Smtpapi.Header header = new Smtpapi.Header();
+
+    header.addSendAt(1);
+    system.assertEquals('{\"send_at\":1}', header.jsonString());
+  }
+
   @isTest static void testSetTos() {
     Smtpapi.Header header = new Smtpapi.Header();
 

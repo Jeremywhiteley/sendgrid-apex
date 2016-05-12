@@ -5,6 +5,7 @@ global class Smtpapi {
     public List<String> to = new List<String>();
     public Map<String, Object> sub = new Map<String, Object>();
     public Map<String, String> unique_args = new Map<String, String>();
+    public Integer send_at;
     public List<String> category = new List<String>();
     public Map<String, String> section = new Map<String, String>();
     public Map<String, Map<String, Map<String,String>>> filters = new Map<String, Map<String, Map<String,String>>>();
@@ -22,6 +23,10 @@ global class Smtpapi {
         data.put('sub', this.sub);
       }
       
+      if (this.send_at != null) {
+        data.put('send_at', this.send_at);
+      }
+
       if (!this.unique_args.isEmpty()) {
         data.put('unique_args', this.unique_args);
       }
@@ -63,6 +68,11 @@ global class Smtpapi {
 
     public Header setSubstitutions(Map<String, Object> substitutions) {
       this.sub = substitutions;
+      return this;
+    }
+
+    public Header addSendAt(Integer val) {
+      this.send_at = val;
       return this;
     }
 

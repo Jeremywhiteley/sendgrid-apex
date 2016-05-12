@@ -1,4 +1,3 @@
-
 global class SendGrid {
   private static final String ENCODING = 'UTF-8';
   private static final String API_URL = 'https://api.sendgrid.com/api/mail.send.json';
@@ -106,6 +105,11 @@ global class SendGrid {
 
     public Email addSubstitution(String key, List<String> val) {
       this.smtpapi.addSubstitution(key, val);
+      return this;
+    }
+
+    public Email addSendAt(Integer val) {
+      this.smtpapi.addSendAt(val);
       return this;
     }
 

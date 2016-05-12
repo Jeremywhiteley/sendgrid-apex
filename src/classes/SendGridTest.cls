@@ -19,6 +19,7 @@ private class SendGridTest {
     email.setFrom('from@mailinator.com');
     email.setSubject('Example');
     email.setText('Example text');
+    email.addSendAt(1);
 
     Test.setMock(HttpCalloutMock.class, new SendGridResponseMock());
     SendGrid.SendGridResponse response = sendgrid.send(email);
